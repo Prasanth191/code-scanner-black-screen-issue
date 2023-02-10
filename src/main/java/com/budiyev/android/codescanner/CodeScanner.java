@@ -588,8 +588,12 @@ public final class CodeScanner {
              * If it throws exception as "java.lang.RuntimeException: startPreview failed" it is mainly due to the screen resolution
              * selected for the preview. In that case we will use the default screen resolution.
              */
-            useDefaultPreviewSize = true;
-            initialize();
+            if(useDefaultPreviewSize == true) return;
+            try {
+                useDefaultPreviewSize = true;
+                initialize();
+            } catch (Exception ignored) {
+            }
         }
     }
 
